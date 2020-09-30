@@ -50,10 +50,10 @@ class _BottomnavbarState extends State<Bottomnavbar> {
           ),
           BottomNavigationBarItem(
               icon: Icon(
-                Icons.shopping_cart,
+                Icons.store,
                 color: _currentindex == 1 ? Colors.black : Colors.grey,
               ),
-              title: Text("Shops",
+              title: Text("Stores",
                   style: TextStyle(
                     color: _currentindex == 1 ? Colors.black : Colors.grey,
                   ))),

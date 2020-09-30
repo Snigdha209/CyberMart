@@ -1,4 +1,3 @@
-import 'package:CyberMart/models/Store.dart';
 import 'package:flutter/material.dart';
 
 class Categorypage extends StatefulWidget {
@@ -14,76 +13,119 @@ class Categorypage extends StatefulWidget {
 }
 
 class _CategorypageState extends State<Categorypage> {
-  List<Stores> stores = [
-    Stores(id: '1', name: "Mochi", image: "assets/images/mochi.jpg"),
-    Stores(id: '2', name: "Solebrity", image: "assets/images/solebrity.jpg"),
-    Stores(id: '3', name: "Store 3", image: "assets/images/solebrity.jpg"),
-    Stores(id: '3', name: "Store 3", image: "assets/images/solebrity.jpg")
+  final List<String> _listItem = [
+    'assets/images/mochi.jpg',
+    'assets/images/solebrity.jpg',
+    'assets/images/shoefac.jpg',
+    'assets/images/ecco.jpg',
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Hero(
-              tag: widget.tag,
-              child: Material(
+    return Scaffold(
+      backgroundColor: Colors.grey[600],
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Icon(Icons.menu),
+        title: Text("Category"),
+        actions: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(10.0),
+            child: Container(
+              width: 36,
+              height: 30,
+              decoration: BoxDecoration(
+                  color: Colors.grey[800],
+                  borderRadius: BorderRadius.circular(10)),
+              child: Icon(Icons.notifications),
+            ),
+          )
+        ],
+      ),
+      body: SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                height: 250,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: DecorationImage(
+                        image: AssetImage(widget.image), fit: BoxFit.cover)),
                 child: Container(
-                  height: 200,
                   decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(widget.image), fit: BoxFit.cover)),
-                  child: Container(
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        begin: Alignment.bottomRight,
-                        colors: [
-                          Colors.black.withOpacity(.8),
-                          Colors.black.withOpacity(.0),
-                        ],
-                      ),
-                    ),
-                    child: Align(
-                      alignment: Alignment.bottomLeft,
-                      child: Text(
+                      borderRadius: BorderRadius.circular(20),
+                      gradient:
+                          LinearGradient(begin: Alignment.bottomRight, colors: [
+                        Colors.black.withOpacity(.4),
+                        Colors.black.withOpacity(.2),
+                      ])),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: <Widget>[
+                      Text(
                         widget.title,
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 15,
+                            fontSize: 35,
                             fontWeight: FontWeight.bold),
                       ),
-                    ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      Container(
+                        child: Center(
+                            child: Text(
+                          "Shop Now",
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.bold),
+                        )),
+                      ),
+                      SizedBox(
+                        height: 30,
+                      ),
+                    ],
                   ),
                 ),
               ),
-            ),
-            GridView.count(
-              physics: ClampingScrollPhysics(),
-              crossAxisCount: 2,
-              shrinkWrap: true,
-              children: stores.map((stores) {
-                return Container(
-                  child: Column(
-                    children: <Widget>[
-                      AspectRatio(
-                        aspectRatio: 1 / 1,
-                        child: Expanded(
-                          child: Image(
-                            image: AssetImage(stores.image),
+              SizedBox(
+                height: 20,
+              ),
+              Expanded(
+                  child: GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                children: _listItem
+                    .map((item) => Card(
+                          color: Colors.transparent,
+                          elevation: 0,
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  item,
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            child: Center(
+                                child: Text(
+                              "Shop name,Shop no. ",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold),
+                            )),
                           ),
-                        ),
-                      ),
-                      Text(stores.name),
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
-          ],
+                        ))
+                    .toList(),
+              ))
+            ],
+          ),
         ),
       ),
     );

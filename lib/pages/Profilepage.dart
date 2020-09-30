@@ -116,7 +116,7 @@ class _ProfilepageState extends State<Profilepage> {
                       ),
                       ListTile(
                         leading: Icon(Icons.store),
-                        title: Text("Shops selected"),
+                        title: Text("Stores selected"),
                       ),
                       Divider(
                         height: 10.0,
@@ -224,16 +224,6 @@ class _ProfilepageState extends State<Profilepage> {
                       children: <Widget>[
                         Text("Language", style: TextStyle(fontSize: 16.0)),
                         // SizedBox(height: 10.0,),
-                        Divider(
-                          height: 30.0,
-                          color: Colors.grey,
-                        ),
-                        Text("Currency", style: TextStyle(fontSize: 16.0)),
-                        // SizedBox(height: 10.0,),
-                        Divider(
-                          height: 30.0,
-                          color: Colors.grey,
-                        ),
                       ],
                     ),
                   ),
