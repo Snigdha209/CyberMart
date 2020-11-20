@@ -1,3 +1,4 @@
+import 'package:CyberMart/pages/Shoplist.dart';
 import 'package:flutter/material.dart';
 
 class Categorypage extends StatefulWidget {
@@ -13,13 +14,6 @@ class Categorypage extends StatefulWidget {
 }
 
 class _CategorypageState extends State<Categorypage> {
-  final List<String> _listItem = [
-    'assets/images/mochi.jpg',
-    'assets/images/solebrity.jpg',
-    'assets/images/shoefac.jpg',
-    'assets/images/ecco.jpg',
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -94,36 +88,10 @@ class _CategorypageState extends State<Categorypage> {
               SizedBox(
                 height: 20,
               ),
-              Expanded(
-                  child: GridView.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
-                children: _listItem
-                    .map((item) => Card(
-                          color: Colors.transparent,
-                          elevation: 0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: DecorationImage(
-                                image: AssetImage(
-                                  item,
-                                ),
-                                fit: BoxFit.cover,
-                              ),
-                            ),
-                            child: Center(
-                                child: Text(
-                              "Shop name,Shop no. ",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold),
-                            )),
-                          ),
-                        ))
-                    .toList(),
-              ))
+              Container(
+                height: 320.0,
+                child: Shoplist(),
+              ),
             ],
           ),
         ),

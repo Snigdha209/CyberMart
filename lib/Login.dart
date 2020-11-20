@@ -1,4 +1,5 @@
 import 'package:CyberMart/Bottomnavbar.dart';
+import 'package:CyberMart/Signup.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
@@ -228,7 +229,12 @@ class _LoginState extends State<Login> {
 
   Widget _buildSignupBtn() {
     return GestureDetector(
-      onTap: () => print('Sign Up Button Pressed'),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => Signup()),
+        );
+      },
       child: RichText(
         text: TextSpan(
           children: [

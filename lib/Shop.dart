@@ -1,8 +1,8 @@
 import 'package:CyberMart/Search.dart';
 import 'package:CyberMart/pages/Categorypage.dart';
-import 'package:CyberMart/pages/Profilepage.dart';
-import 'package:CyberMart/pages/Selectshops.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:carousel_pro/carousel_pro.dart';
 
 class Shop extends StatefulWidget {
   @override
